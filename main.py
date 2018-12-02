@@ -128,7 +128,7 @@ for i in range(0,20):
     print()
     print_perf(perf)
     print()
-    
+
 d = {'k': [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
      'mean': [1.3278,1.1489,1.087,1.0562,1.037,1.0239,1.0151,1.0082,1.0033,0.9996,0.9964,0.9939,0.9919,0.9906,0.9896,0.9888,0.9881,0.9876,0.9872]}
 
@@ -147,7 +147,6 @@ for i in range(0,20):
     print_perf(perf)
     print()
     
-#1.1257
 d1 = {'k': [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
      'mean': [1.4289,1.2317,1.1527,1.1094,1.0815,1.0626,1.0486,1.0374,1.0290,1.0225,1.0166,1.0122,1.0085,1.0050,1.0022,1.0003,0.9983,0.9969,0.9953]}
 df1 = pd.DataFrame(data=d1)
@@ -156,3 +155,10 @@ plot2 = df.plot.scatter(x='k', y='mean', c='Green')
 plot2.set_title('Item Based Collaborative Filtering K Values')
 plot2.set_ylabel('Mean RMSE Value')
 plot2.set_xlabel('K')
+
+algo = KNNBasic(k=55, sim_options={'name':'MSD','user_based':True})
+perf = evaluate(algo, data, measures=['RMSE'])
+print("User-Based Collaborative Filtering Algorithm (k=", 55,")")
+print()
+print_perf(perf)
+print()
